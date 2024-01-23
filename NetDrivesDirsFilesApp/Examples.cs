@@ -8,6 +8,59 @@ namespace NetDrivesDirsFilesApp
 {
     internal static class Examples
     {
+        public static void FileExample()
+        {
+            string fileName = "file01.dat";
+
+            /*
+            Create(filename)
+            Delete(filename)
+            Move(Sourcefilename, Distfilename)
+            Copy(Sourcefilename, Distfilename)
+            Exists(filename)
+             */
+
+            string text = "Creates a StreamWriter that appends UTF-8 encoded text to an existing file, or to a new file if the specified file does not exist." +
+                "Массив является единственным типом в этом примере, который содержит закодированные данные. .NET Char и String типы представляют собой Юникод, поэтому GetChars вызов декодирует данные обратно в Юникод.";
+            string[] textLines = new[]
+            {
+                "hello world",
+                "hello people"
+            };
+
+
+            //File.Create(fileName);
+
+            //File.WriteAllText(fileName, text, Encoding.UTF8);
+            //File.AppendAllLines(fileName, textLines);
+
+            //float n = 123.56765f;
+            //File.WriteAllBytes(fileName, BitConverter.GetBytes(n));
+
+            File.WriteAllBytes(fileName, Encoding.Unicode.GetBytes(text));
+
+            //var txt = File.ReadAllText(fileName, Encoding.ASCII);
+
+            var txt = File.ReadAllBytes(fileName);
+            Console.WriteLine(Encoding.Unicode.GetString(txt));
+
+            //var txtLines = File.ReadAllLines(fileName);
+            //foreach(string line in txtLines)
+            //    Console.WriteLine(line);
+
+            //var lines = File.ReadLines(fileName);
+            //foreach (string line in lines)
+            //    Console.WriteLine(line);
+
+
+            //var buff = File.ReadAllBytes(fileName);
+            //var fvar = BitConverter.ToSingle(buff, 0);
+
+            //Console.WriteLine(fvar);
+
+            //File.Delete(fileName);
+        }
+
         public static void DirectoryInfoExample()
         {
             // DirectoryInfo
